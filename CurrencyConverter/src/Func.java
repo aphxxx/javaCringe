@@ -14,13 +14,13 @@ public class Func {
         return false;
     }
 
-    public void dollarToNok(double input){
-        double nok = input * 8.2;
+    public void dollarToNok(double Minput){
+        double nok = Minput * 8.2;
         JOptionPane.showMessageDialog(null, "Amount NOK: " +nok);
     }
 
-    public void dollarToJpy(double input){
-        double jpy = input * 112.7;
+    public void dollarToJpy(double Minput){
+        double jpy = Minput * 112.7;
         JOptionPane.showMessageDialog(null, "Amount JPY: " +jpy);
     }
 }
