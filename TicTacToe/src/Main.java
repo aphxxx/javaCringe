@@ -126,9 +126,6 @@ public class Main {
                 return "Tie!";
             }
         }
-
-
-
         return "";
     }
 }
