@@ -9,6 +9,24 @@ public class Bank {
 
     private ArrayList<Account> accounts;
 
+    /**
+     * Get the name of the bank
+     * @return name of the bank
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Create a new Bank object with empty lists of users and accounts
+     * @param name
+     */
+    public Bank(String name){
+        this.name = name;
+        this.users = new ArrayList<User>();
+        this.accounts = new ArrayList<Account>();
+    }
+
 
     /**
      * Generate a new UUID for a user.

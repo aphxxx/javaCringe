@@ -36,7 +36,6 @@ public class User {
      * @param pin       the user's account pin
      * @param theBank   the user's Bank Object
      */
-
     public User(String firstName, String lastName, String pin,  Bank theBank) {
 
         // set user's name
@@ -97,5 +96,13 @@ public class User {
         }
 
         return false;
+    }
+
+    /**
+     * Get the user's first name
+      * @return the user's first name
+     */
+    public String getFirstName() {
+        return firstName;
     }
 }
