@@ -22,7 +22,7 @@ public class Account {
     private ArrayList<Transaction> transactions;
 
     /**
-     *
+     * Create a new account
      * @param name the name of the account
      * @param holder the User object that hold this account
      * @param theBank the Bank that issues that account
@@ -38,9 +38,11 @@ public class Account {
         // init transactions
         this.transactions = new ArrayList<Transaction>();
 
+        /*
         // add to holder and bank lists
         holder.addAccount(this);
         theBank.addAccount(this);
+         */
     }
 
     /**
