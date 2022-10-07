@@ -88,5 +88,53 @@ public class ATM {
         } while(choice < 1 || choice > 5);
 
         // process the choice
+        switch (choice){
+            case 1:
+                ATM.showTransHistory(theUser, scan);
+                break;
+            case 2:
+                ATM.withdrawlFunds(theUser, scan);
+                break;
+            case 3:
+                ATM.depositFunds(theUser, scan);
+                break;
+            case 4:
+                ATM.transferFunds(theUser, scan);
+                break;
+        }
+
+        //redisplay this menu unless the user wants to quit
+        if (choice != 5){
+            ATM.printUserMenu(theUser, scan);
+        }
+    }
+
+    public static void showTransHistory(User theUser, Scanner scan){
+        int theAcct;
+
+        // get account whose transaction history to look at
+        do {
+            System.out.printf("Enter the number(1-%d) of the account\n"+
+                    "whose transactions you want to see: ", theUser.numAccounts());
+            theAcct = scan.nextInt()-1;
+            if(theAcct < 0 || theAcct  >= theUser.numAccounts()){
+                System.out.println("Invalid account. Please try again.");
+            }
+        } while (theAcct < 0 || theAcct  >= theUser.numAccounts());
+
+        //print the transaction history
+        theUser.printAcctTransHistory(theAcct);
+    }
+
+    public static void withdrawlFunds(User theUser, Scanner scan){
+
+    }
+
+    public static void depositFunds(User theUser, Scanner scan){
+
+    }
+
+    public static void transferFunds(User theUser, Scanner scan){
+
     }
 }
