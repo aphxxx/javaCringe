@@ -11,6 +11,7 @@ public class Bank {
 
     /**
      * Get the name of the bank
+     *
      * @return name of the bank
      */
     public String getName() {
@@ -19,9 +20,10 @@ public class Bank {
 
     /**
      * Create a new Bank object with empty lists of users and accounts
+     *
      * @param name
      */
-    public Bank(String name){
+    public Bank(String name) {
         this.name = name;
         this.users = new ArrayList<User>();
         this.accounts = new ArrayList<Account>();
@@ -30,9 +32,10 @@ public class Bank {
 
     /**
      * Generate a new UUID for a user.
+     *
      * @return the UUID
      */
-    public String getNewUserUUID(){
+    public String getNewUserUUID() {
 
         // init
         String uuid;
@@ -45,13 +48,13 @@ public class Bank {
 
             uuid = "";
             for (int i = 0; i < len; i++) {
-                uuid += ((Integer)rand.nextInt(10)).toString();
+                uuid += ((Integer) rand.nextInt(10)).toString();
             }
 
             //check to make sure it's unique
             nonUnique = false;
-            for(User u: this.users){
-                if(uuid.compareTo(u.getUUID()) == 0){
+            for (User u : this.users) {
+                if (uuid.compareTo(u.getUUID()) == 0) {
                     nonUnique = true;
                     break;
                 }
@@ -59,15 +62,15 @@ public class Bank {
         } while (nonUnique);
 
 
-
         return uuid;
     }
 
     /**
      * Generate a new UUID for an account.
+     *
      * @return the UUID
      */
-    public String getNewAccountUUID(){
+    public String getNewAccountUUID() {
 
         // init
         String uuid;
@@ -80,13 +83,13 @@ public class Bank {
 
             uuid = "";
             for (int i = 0; i < len; i++) {
-                uuid += ((Integer)rand.nextInt(10)).toString();
+                uuid += ((Integer) rand.nextInt(10)).toString();
             }
 
             //check to make sure it's unique
             nonUnique = false;
-            for(Account a: this.accounts){
-                if(uuid.compareTo(a.getUUID()) == 0){
+            for (Account a : this.accounts) {
+                if (uuid.compareTo(a.getUUID()) == 0) {
                     nonUnique = true;
                     break;
                 }
@@ -94,27 +97,27 @@ public class Bank {
         } while (nonUnique);
 
 
-
         return uuid;
     }
 
     /**
      * Add an account for the bank.
+     *
      * @param anAcct the account to add
      */
-    public void addAccount(Account anAcct){
+    public void addAccount(Account anAcct) {
         this.accounts.add(anAcct);
-
     }
 
     /**
-     *  Create a new User of the bank
+     * Create a new User of the bank
+     *
      * @param firstName the user's first name
-     * @param lastName the user's last name
-     * @param pin the user's pin
-     * @return the new User object
+     * @param lastName  the user's last name
+     * @param pin       the user's pin
+     * @return          the new User object
      */
-    public User addUser(String firstName, String lastName, String pin){
+    public User addUser(String firstName, String lastName, String pin) {
 
         //create a new User object and add it to out list
         User newUser = new User(firstName, lastName, pin, this);
@@ -130,15 +133,16 @@ public class Bank {
 
     /**
      * Get the User object associated with a particular userID and pin, if they are valid
+     *
      * @param userID the UUID of the user
-     * @param pin the pin of the user
-     * @return the User object, if login is successful, or null, if it is not
+     * @param pin    the pin of the user
+     * @return       the User object, if login is successful, or null, if it is not
      */
-    public User userLogin(String userID, String pin){
+    public User userLogin(String userID, String pin) {
         // search through list of user
-        for(User u: this.users){
+        for (User u : this.users) {
             //check user ID is correct
-            if(u.getUUID().compareTo(userID) == 0 && u.validatePin(pin)){
+            if (u.getUUID().compareTo(userID) == 0 && u.validatePin(pin)) {
                 return u;
             }
         }
